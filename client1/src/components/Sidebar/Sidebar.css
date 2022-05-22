@@ -1,0 +1,25 @@
+.sidebar{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 20vw;
+    top: 10%;
+    position: fixed;
+    left: 0;
+    background-color:rgb(169, 169, 169);
+    height: -webkit-fill-available;
+    /* flex-basis: 20%; */
+
+
+}
+.alb{
+    margin: 1rem;
+}
+
+.side-title{
+    margin-left: 0;
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: rgb(65, 44, 255);
+    margin-bottom: 1.5rem;
+}

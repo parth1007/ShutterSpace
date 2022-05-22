@@ -1,0 +1,66 @@
+/* ************** Container **************** */
+
+
+.img-container {
+    width: 80vw;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    overflow-y: scroll;
+    height: 90%;
+}
+
+
+
+/* ************** Content-Bar **************** */
+
+.contentbar{
+    height: 3.2rem;
+    background-color: rgb(231, 231, 231);
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+.active-album{
+    font-size: 2rem;
+    color: rgb(65, 44, 255);
+    margin-left: 3rem;   
+}
+
+.upload{
+    margin-right: 3rem;
+}
+.upload-btn{
+    background-color:rgb(65, 44, 255);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    height: 2rem;
+    width: 5rem;
+}
+
+.searchbar {
+    width: 35rem;
+    height: 2rem;
+    border-radius:0.4rem;
+    padding: 0.5rem;
+    border: 0.5px solid rgb(126, 126, 126);
+    margin-right: 1rem;
+}
+.search button{
+    font-size: 1rem;
+    border: none;
+    height: 2rem;
+    width: 5rem;
+    background-color:rgb(126, 126, 126);
+    border-radius:0.4rem;
+}
+
