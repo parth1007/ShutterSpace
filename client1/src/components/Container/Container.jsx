@@ -7,23 +7,7 @@ const Container = () => {
   return (
     <div className="img-container">
         <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
-        <Contentbar/>
+
 
     </div>
   )

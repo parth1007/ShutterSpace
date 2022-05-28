@@ -18,7 +18,7 @@ function App() {
         <Container/>
       </div>
       
-      {uploadBoxToggle && <UploadBox/>}
+      {!uploadBoxToggle && <UploadBox/>}
 
     </div>
   );
