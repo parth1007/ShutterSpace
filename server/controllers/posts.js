@@ -9,14 +9,41 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const createPost = async (req, res) => {
-    const inputPost = req.body;
 
-    const newPost = new PostMessage(inputPost);
 
+const createPosts = async (req , res) => {
     try {
-        await newPost.save();
-        res.status(201).json(newPost);
+        const { _id} = req.params.id
+        const {name , ...otherDetail} = await User.findbyId({id : _id})
+        // const {like } = await like.findbyId({id : _id})
+        await Posts.save({
+            "uploadBy" : name,
+            "desc" : req.body.desc,
+            "url" : req.body.imageUrl
+        })
+
+    } catch (error) {
+        throw error
+    }
+}
+
+
+// {
+//     "createdBy" : "name",
+//     "imageURL" : "string",
+//     "desc" : "string",
+//     "likeCount" : number ,
+//     "folder" : 
+// }
+export const getPost = async (req, res) => {
+    
+    try{
+
+        const {folderName} = req.params.folderName
+
+        const {photos} = await Posts.find({folder : folderName})
+    
+     res.status(201).json(photos);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
