@@ -1,0 +1,6 @@
+.pageBody{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 10%;
+  }

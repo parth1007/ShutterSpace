@@ -1,10 +1,16 @@
 import React from 'react'
 import './Container.css'
+import {AppState} from '../../Context/AppProvider';
+
 
 const Contentbar = () => {
 
+  const {toggleUploadModal, setToggleUploadModal} = AppState();
+
+
   const displayUploadBox = () =>{
-    console.log("Upload Now")
+    console.log("Upload Now");
+    setToggleUploadModal(true);
   }
 
   return (

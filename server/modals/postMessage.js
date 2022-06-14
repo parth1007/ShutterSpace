@@ -8,7 +8,7 @@ const postSchema = Schema({
         type: String,
         required: true
     },
-    message: String,
+    caption: String,
     
     selectedFile: String,
     likeCount:{
