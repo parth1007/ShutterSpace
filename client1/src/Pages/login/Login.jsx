@@ -37,7 +37,7 @@ export default function Login() {
         const {data} = await axios.post("http://localhost:8000/api/user/login",user,config);
         console.log(data);
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/chats");
+        navigate("/");
       } catch (error) {
         console.log(error);
       }

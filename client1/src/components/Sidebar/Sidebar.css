@@ -3,14 +3,13 @@
     flex-direction:column;
     align-items: center;
     width: 20vw;
-    top: 10%;
+    top: 12%;
     position: fixed;
     left: 0;
-    background-color:rgb(169, 169, 169);
+    background-color:#2A68C6;
     height: -webkit-fill-available;
+    border-top-right-radius: 5rem;
     /* flex-basis: 20%; */
-
-
 }
 .alb{
     margin: 1rem;
@@ -18,8 +17,34 @@
 
 .side-title{
     margin-left: 0;
-    margin-top: 2rem;
-    font-size: 2rem;
-    color: rgb(65, 44, 255);
+    margin-top: 4rem;
+    /* margin-left: 3rem; */
+    left: 4rem;
+    font-size: 1.4rem;
+    color: #2A68C6;
+    background-color: #fff;
+    padding: 0.8rem 1.6rem;
     margin-bottom: 1.5rem;
+    border-radius: 3rem;
+    border: none;
+    
+}
+
+.album-list{
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    width: 100%;
+    height: -webkit-fill-available;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+    background-color: #2A68C6;
+    border: none;
+}
+
+.alb{
+    color: #fff;
+    font-size: 1.1rem;
 }

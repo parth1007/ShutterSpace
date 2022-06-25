@@ -1,14 +1,25 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
+const express = require("express");
+const userRoutes = require('./routes/userRoutes')
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+var cors = require('cors')
+const dotenv = require("dotenv");
 
-import postRoute from "./routes/posts.js";
+
+var cors = require('cors')
+
 
 const app = express();
+app.use(cors()) 
+
+dotenv.config();
 
 
-app.use('/posts',postRoute);
+app.use(express.json());
+
+
+app.use('/api/user',userRoutes);
+// app.use('/posts',postRoute);
 app.post('/')
 
 

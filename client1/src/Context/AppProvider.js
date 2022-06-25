@@ -14,20 +14,22 @@ const AppProvider = ({children}) =>{
     const initial = JSON.parse(localStorage.getItem("userInfo"));
     const [user,setUser] = useState(initial); 
     const [toggleUploadModal, setToggleUploadModal] = useState(false);
+    
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     // Get user from local storage
 
-    // useEffect(() => {
-    //   const userInfo =  JSON.parse(localStorage.getItem("userInfo"));
+    useEffect(() => {
+      const userInfo =  JSON.parse(localStorage.getItem("userInfo"));
       
-    //   setUser(userInfo);
-    //   console.log(userInfo);
+      setUser(userInfo);
+      console.log(userInfo);
 
       
-    // },[navigate])
+    },[navigate])
+
 
 
     return(

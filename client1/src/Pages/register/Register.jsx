@@ -23,39 +23,36 @@ export default function Register() {
 
 
   // function to add image to cloudinary
-  const postPic = (pics) => {
-    setPicLoading(true);
-    if(pics === undefined){
-      alert("Please Select an Image!")
-      return;
-    }
+  // const postPic = (pics) => {
+  //   setPicLoading(true);
+  //   if(pics === undefined){
+  //     alert("Please Select an Image!")
+  //     return;
+  //   }
 
-    if(pics.type === "image/jpeg" || pics.type === "image/png" || pics.type === "image/svg"){
-      const data = new FormData();
-      data.append("file",pics);
-      data.append("upload_preset","chat-app");
-      data.append("cloud_name","ryuzaki")
-      fetch("https://api.cloudinary.com/v1_1/ryuzaki/image/upload",{
-        method:"post",
-        body: data,
-      }).then((res) => res.json())
-        .then(data => {
-          setProfilePic(data.url.toString());
-          console.log(data.url.toString());
-          setPicLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setPicLoading(false);
-        })
-    }
-    else{
-      alert("Please upload an image");
-    }
-
-
-
-  }
+  //   if(pics.type === "image/jpeg" || pics.type === "image/png" || pics.type === "image/svg"){
+  //     const data = new FormData();
+  //     data.append("file",pics);
+  //     data.append("upload_preset","chat-app");
+  //     data.append("cloud_name","ryuzaki")
+  //     fetch("https://api.cloudinary.com/v1_1/ryuzaki/image/upload",{
+  //       method:"post",
+  //       body: data,
+  //     }).then((res) => res.json())
+  //       .then(data => {
+  //         setProfilePic(data.url.toString());
+  //         console.log(data.url.toString());
+  //         setPicLoading(false);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         setPicLoading(false);
+  //       })
+  //   }
+  //   else{
+  //     alert("Please upload an image");
+  //   }
+  // }
 
 
   // function to register user
@@ -85,7 +82,7 @@ export default function Register() {
         const {data} = await axios.post("http://localhost:8000/api/user/register",user,config);
         console.log(data);
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/chats");
+        navigate("/");
       } catch (error) {
         console.log(error);
       }
@@ -114,8 +111,8 @@ export default function Register() {
             />
             <input placeholder="Password Again" required  className="loginInput" type="password" style={{height: '55px'}} onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            <input type="file" style={{height: '2rem',padding:"1rem",fontSize:"1rem"}} onChange={(e) => postPic(e.target.files[0])}
-            />
+            {/* <input type="file" style={{height: '2rem',padding:"1rem",fontSize:"1rem"}} onChange={(e) => postPic(e.target.files[0])}
+            /> */}
             <button className="loginButton">Sign Up</button>
             
             
