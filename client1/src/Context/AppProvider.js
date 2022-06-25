@@ -13,6 +13,7 @@ const AppProvider = ({children}) =>{
 
     const initial = JSON.parse(localStorage.getItem("userInfo"));
     const [user,setUser] = useState(initial); 
+    const [activeFolder,setActiveFolder] = useState();
     const [toggleUploadModal, setToggleUploadModal] = useState(false);
     
 
@@ -36,10 +37,10 @@ const AppProvider = ({children}) =>{
         
         <AppContext.Provider 
                 value={{  
-                    user,setUser,
-                    toggleUploadModal, setToggleUploadModal
-
-                        }}>
+                        user,setUser,
+                        toggleUploadModal, setToggleUploadModal,
+                        activeFolder,setActiveFolder
+                    }}>
                 {children}
         </AppContext.Provider>
     )

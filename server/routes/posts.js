@@ -5,8 +5,8 @@ const router = express.Router();
 
 
 // router.get('/', getPosts);
-router.post('/', createPosts);
-router.post('/:id/:folderName', getPost);
+router.post('/:folderId/:userId', createPosts);
+router.get('/:folderId', getPost);
 // router.get('/folder', getfolderPosts);
 
 

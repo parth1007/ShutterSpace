@@ -5,7 +5,7 @@ import {AppState} from '../../Context/AppProvider';
 
 const Contentbar = () => {
 
-  const {toggleUploadModal, setToggleUploadModal} = AppState();
+  const {toggleUploadModal, setToggleUploadModal,activeFolder} = AppState();
 
 
   const displayUploadBox = () =>{
@@ -15,7 +15,7 @@ const Contentbar = () => {
 
   return (
     <div className = "contentbar">
-        <div className = "active-album">Album</div>
+        <div className = "active-album">{activeFolder}</div>
 
         <div className="upload">
             <button type="submit" class="upload-btn" onClick={displayUploadBox}>Upload</button>
