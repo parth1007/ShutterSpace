@@ -1,5 +1,7 @@
 import React from 'react'
 import './Navbar.css'
+import ProfileModal from '../Modals/ProfileModal';
+
 
 // MUI Imports
 import SearchIcon from '@mui/icons-material/Search';
@@ -13,6 +15,9 @@ import {AppState} from '../../Context/AppProvider';
 const Navbar = () => {
 
   const {user,setUser} = AppState();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
 
 
@@ -30,8 +35,9 @@ const Navbar = () => {
       <div className="userinfo">
 
         <div className="logged-name">Ryuzaki</div>      
-        <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+        <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" onClick={handleOpen}/>
       </div>
+      <ProfileModal open={open} handleClose={handleClose}/>
       
     </div>
   )

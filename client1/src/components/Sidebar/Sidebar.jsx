@@ -1,14 +1,22 @@
 import React from 'react'
 import './Sidebar.css'
 import {AppState} from '../../Context/AppProvider';
+import CreateAlbum from '../Modals/CreateAlbum';
 
 const Sidebar = () => {
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const {activeFolder,setActiveFolder} = AppState();
 
   return (
     <div className="sidebar">
-      <button className="side-title">Create Albums</button>
+      <button className="side-title" onClick={handleOpen}>Create Albums</button>
+
+      <CreateAlbum open={open} handleClose={handleClose} />
+
       <div className="album-list">
       
           <div className="alb" onClick={()=>{setActiveFolder("Album1")}}>Album1</div>

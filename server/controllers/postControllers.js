@@ -4,10 +4,10 @@ const Folder = require("../modals/Folder.js")
 const User = require("../modals/User.js")
 
 
-
-export const createPosts = async (req , res) => {
+export const createPost = async (req , res) => {
     try {
-        const {folderId,userId} = req.params;
+        const {folderId} = req.params;
+        const userId = req.user._id;
         const {name} = await User.findbyId({id : userId});
         const folder = await Folder.findbyId({id : folderId});
 
@@ -15,13 +15,14 @@ export const createPosts = async (req , res) => {
             "uploadBy" : name,
             "caption" : req.body.caption,
             "folder": folder,
-        
         })
 
     } catch (error) {
         throw error
     }
 }
+
+
 
 // export const createPosts = async (req , res) => {
 //     try {

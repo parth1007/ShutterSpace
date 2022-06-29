@@ -1,11 +1,11 @@
 import express, { application } from 'express';
-import { getPost, createPosts } from '../controllers/posts.js';
+import { getPost, createPost } from '../controllers/postControllers.js';
 
 const router = express.Router();
 
 
 // router.get('/', getPosts);
-router.post('/:folderId/:userId', createPosts);
+router.post('/:folderId', createPost);
 router.get('/:folderId', getPost);
 // router.get('/folder', getfolderPosts);
 
