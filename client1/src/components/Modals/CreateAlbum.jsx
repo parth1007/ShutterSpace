@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
+import "./CreateAlbum.css"
 
 const style = {
     position: 'absolute',
@@ -12,7 +12,8 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    background: '#FFFFFF',
+    borderRadius: '2.5rem',
     boxShadow: 24,
     p: 4,
   };
@@ -31,9 +32,14 @@ const CreateAlbum = ({open,handleClose}) => {
             aria-describedby="modal-modal-description"
             >
             <Box sx={style}>
+              <div className='create_album'>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Create a new album
+                    Album 1
                 </Typography>
+                <input type="text" className='album_name' placeholder='Enter a Name'/><br/>
+                <button type="button" className="album_submit"> Submit</button>
+                <button type="button" className="album_cancel"> Cancel</button>
+                </div>
             </Box>
       </Modal>
     </div>

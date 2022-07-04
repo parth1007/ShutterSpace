@@ -12,9 +12,12 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '2rem',
+    borderRadius: '1.5rem',
+   
   };
 
 
@@ -30,15 +33,9 @@ const Uploadbox = ({open,handleClose}) => {
             aria-describedby="modal-modal-description"
             >
             <Box sx={style}>
-                <div classname="upload_img">
-                  <img src= {require('../../assets/Images/upload.png')} />
-                </div>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Text in a modal
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                </Typography>
+                <img src= {require('../../assets/Images/upload.png')} className="upload_img" />
+                <button type="button" className="upload_browse"> Browse</button>
+                <button type="button" className="upload_submit"> Submit</button>
             </Box>
       </Modal>
     </div>

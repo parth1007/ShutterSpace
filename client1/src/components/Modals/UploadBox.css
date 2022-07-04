@@ -1,6 +1,40 @@
+
 .upload_img
 {
-    width: 25%;
-    margin-left: 45%;
-    background-color: #000;
+    width: 40%;
+    margin-left: 30%;
+}
+
+.upload_browse
+{
+    margin-top: 5%;
+    width: 50%;
+    margin-left: 25%;
+    background: #2A68C6;
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 100%;
+    border: none;
+    cursor: pointer;
+}
+.upload_submit
+{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 5%;
+    background: #12DF00;
+    color: #fff;
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 100%;
+    border: none;
+    cursor: pointer;
 }
