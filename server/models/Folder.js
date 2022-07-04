@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Image = require('../modals/PostImage.js')
+const Image = require('../models/PostImage.js')
 
 const folderSchema = mongoose.Schema({
     folderName : {

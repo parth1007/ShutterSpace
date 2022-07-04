@@ -1,21 +1,41 @@
-import Posts from "../modals/postMessage.js";
-const Image = require("../modals/PostImage.js")
-const Folder = require("../modals/Folder.js")
-const User = require("../modals/User.js")
+// import Posts from "../modals/postMessage.js";
+const Image = require("../models/PostImage.js")
+const Folder = require("../models/Folder.js")
+const User = require("../models/User.js")
 
-
-export const createPost = async (req , res) => {
+// 62c32a71515b47f98179fb59
+const createPost = async (req , res) => {
     try {
         const {folderId} = req.params;
         const userId = req.user._id;
-        const {name} = await User.findbyId({id : userId});
-        const folder = await Folder.findbyId({id : folderId});
 
-        await Posts.save({
+        const {name} = await User.findOne({_id : userId});
+        const folder = await Folder.findOne({_id : folderId});
+
+        const url = req.body.imageUrl
+
+        
+
+        const ans = await Image.create({
             "uploadBy" : name,
             "caption" : req.body.caption,
             "folder": folder,
+            "imageUrl" : url
         })
+        await Folder.findByIdAndUpdate(folderId, 
+            {
+                $push : {images : ans}
+            }
+        ).populate("imageUrl")
+
+        // await Folder.findByIdAndUpdate(folderId, 
+        //     {
+        //         $push : {images : ans}
+        //     }
+        // )
+        console.log(ans)
+
+        res.status(200).send(ans)
 
     } catch (error) {
         throw error
@@ -54,4 +74,4 @@ export const createPost = async (req , res) => {
 
 // }
 
-
+module.exports = {createPost}

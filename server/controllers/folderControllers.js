@@ -1,16 +1,19 @@
-import Posts from "../modals/postMessage.js";
-const Image = require("../modals/PostImage.js")
-const Folder = require("../modals/Folder.js")
-const User = require("../modals/User.js")
+// const Posts = require("../modals/postMessage.js")
+const Image = require("../models/PostImage.js")
+const Folder = require("../models/Folder.js")
+const User = require("../models/User.js")
 
 
-export const createFolder = async (req , res) => {
+const createFolder = async (req , res) => {
     try {
-        const user = req.user;
+        // const user = req.user;
         const {folderName} = req.body;
-        await Folder.save({
+        // console.log(folderName)
+        const ans = await Folder.create({
             "folderName": folderName,
         })
+
+        res.status(200).send(ans)
 
 
     } catch (error) {
@@ -18,13 +21,13 @@ export const createFolder = async (req , res) => {
     }
 }
 
-export const renameFolder = async (req , res) => {
+const renameFolder = async (req , res) => {
     try {
-        const user = req.user;
-        const {folderId} = req.params;
-
-        const newFolder = await Folder.findByIdAndUpdate(folderId, { folderName:folderName });
-
+        // const user = req.user;
+        const {folderId} = await req.params;
+        const {folderName} = req.body
+        const newFolder = await Folder.findByIdAndUpdate(folderId, { folderName:folderName } );
+        // console.log(newFolder)
         res.status(200).json(newFolder);
 
         // Folder.update (
@@ -42,12 +45,12 @@ export const renameFolder = async (req , res) => {
 }
 
 
-export const deleteFolder = async (req , res) => {
+const  deleteFolder = async (req , res) => {
     try {
-        const userId = req.user._id;
-        const {folderId} = req.params;
+        // const userId = req.user._id;
+        const {folderId} = await req.params;
 
-        Folder.findByIdAndDelete(folderId);
+        await Folder.findByIdAndDelete(folderId);
         console.log("Folder deleted");
         res.status(200).send("Deleted");
 
@@ -56,3 +59,5 @@ export const deleteFolder = async (req , res) => {
     }
 }
 
+
+module.exports = {createFolder , deleteFolder , renameFolder};

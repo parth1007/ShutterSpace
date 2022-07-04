@@ -1,5 +1,7 @@
 const express = require("express");
 const userRoutes = require('./routes/userRoutes')
+const folderRoutes = require('./routes/folderRoutes')
+const postRoutes = require('./routes/postRoutes')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var cors = require('cors')
@@ -19,8 +21,8 @@ app.use(express.json());
 
 
 app.use('/api/user',userRoutes);
-// app.use('/posts',postRoute);
-app.post('/')
+app.use('/api/folder' , folderRoutes)
+app.use('/api/post' , postRoutes)
 
 
 // ********** Check for its use ***********

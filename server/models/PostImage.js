@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Folder = require('../modals/Folder.js')
+const Folder = require('../models/Folder.js')
 
 const ImageSchema = mongoose.Schema({
     uploadBy: {
@@ -9,6 +9,10 @@ const ImageSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:"Folder",
         required: true
+    },
+    imageUrl:{
+        type: String,
+        required:true
     },
     caption: {
         type : String
