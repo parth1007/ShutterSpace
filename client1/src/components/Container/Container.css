@@ -11,7 +11,7 @@
     top: 10%;
     left: 20%;
     overflow-y: scroll;
-    height: 90%;
+    height: 88%;
 }
 
 
@@ -20,7 +20,7 @@
 
 .contentbar{
     height: 3.2rem;
-    background-color: rgb(231, 231, 231);
+    /* background-color: rgb(231, 231, 231); */
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -39,12 +39,15 @@
     margin-right: 3rem;
 }
 .upload-btn{
-    background-color:rgb(65, 44, 255);
+    background-color:#2A68C6;
     color: white;
     font-size: 1rem;
     border: none;
-    height: 2rem;
-    width: 5rem;
+    /* height: 2rem; */
+    border-radius: 1.5rem;
+    padding:0.8rem 1.5rem ;
+    font-weight:500;
+    /* width: 5rem; */
 }
 
 .searchbar {

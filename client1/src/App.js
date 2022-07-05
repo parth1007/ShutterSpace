@@ -15,17 +15,6 @@ function App() {
   const {toggleUploadModal, setToggleUploadModal} = AppState();
 
   return (
-    // <div className="App">
-    //   <Navbar/>
-    //   <div className="pageBody">
-    //     <Sidebar/>
-    //     <Container/>
-    //   </div>
-      
-    //   {toggleUploadModal && <UploadBox/>}
-
-    // </div>
-
 
       <div className="App">
         <Routes>

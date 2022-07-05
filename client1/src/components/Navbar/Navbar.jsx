@@ -20,11 +20,10 @@ const Navbar = () => {
   const handleClose = () => setOpen(false);
 
 
-
   return (
     <div className = "navbar">
       <div className = "title">PicMe </div>
-      {user?.name}
+      
       <div className = "search">
          <SearchIcon className="search-icon" style={{marginLeft:"1rem"}}/>
           <InputBase className="search-field" 
@@ -34,7 +33,7 @@ const Navbar = () => {
       </div>
       <div className="userinfo">
 
-        <div className="logged-name">Ryuzaki</div>      
+        <div className="logged-name">{user?.name}</div>      
         <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" onClick={handleOpen}/>
       </div>
       <ProfileModal open={open} handleClose={handleClose}/>

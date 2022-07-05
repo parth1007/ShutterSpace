@@ -4,6 +4,7 @@ const Folder = require("../models/Folder.js")
 const User = require("../models/User.js")
 
 // 62c32a71515b47f98179fb59
+
 const createPost = async (req , res) => {
     try {
         const {folderId} = req.params;
@@ -12,27 +13,17 @@ const createPost = async (req , res) => {
         const {name} = await User.findOne({_id : userId});
         const folder = await Folder.findOne({_id : folderId});
 
-        const url = req.body.imageUrl
-
-        
-
         const ans = await Image.create({
             "uploadBy" : name,
             "caption" : req.body.caption,
             "folder": folder,
-            "imageUrl" : url
+            "imageUrl" : req.body.imageUrl
         })
         await Folder.findByIdAndUpdate(folderId, 
             {
                 $push : {images : ans}
             }
-        ).populate("imageUrl")
-
-        // await Folder.findByIdAndUpdate(folderId, 
-        //     {
-        //         $push : {images : ans}
-        //     }
-        // )
+        )
         console.log(ans)
 
         res.status(200).send(ans)
@@ -41,23 +32,6 @@ const createPost = async (req , res) => {
         throw error
     }
 }
-
-
-
-// export const createPosts = async (req , res) => {
-//     try {
-//         const { _id} = req.params.id;
-//         const {name , ...otherDetail} = await User.findbyId({id : _id});
-//         await Posts.save({
-//             "uploadBy" : name,
-//             "caption" : req.body.caption,
-//             "selectedFile" : req.body.selectedFile
-//         })
-
-//     } catch (error) {
-//         throw error
-//     }
-// }
 
 // export const getPost = async (req, res) => {
     

@@ -3,7 +3,15 @@ const Image = require("../models/PostImage.js")
 const Folder = require("../models/Folder.js")
 const User = require("../models/User.js")
 
+const getFolders = async(req , res) => {
+    try {
+        const ans = await Folder.find();
+        res.status(200).send(ans);
 
+    } catch (error) {
+        throw error;
+    }
+}
 const createFolder = async (req , res) => {
     try {
         // const user = req.user;
@@ -60,4 +68,4 @@ const  deleteFolder = async (req , res) => {
 }
 
 
-module.exports = {createFolder , deleteFolder , renameFolder};
+module.exports = {createFolder , deleteFolder , renameFolder, getFolders};

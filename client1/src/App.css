@@ -42,3 +42,12 @@
 }
 
 
+::-moz-selection { /* Code for Firefox */
+  background: turquoise;
+  color: #fff;
+}
+
+::selection {
+  background: turquoise;
+  color: #fff;
+}

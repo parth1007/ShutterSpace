@@ -18,10 +18,10 @@ const Contentbar = () => {
   return (
     <>
       <div className = "contentbar">
-          <div className = "active-album">{activeFolder}</div>
+          <div className = "active-album">{activeFolder?.folderName}</div>
 
           <div className="upload">
-              <button type="submit" class="upload-btn" onClick={handleOpen}>Upload</button>
+              <button type="submit" class="upload-btn" onClick={handleOpen}>Upload Images</button>
           </div>
       </div>
 

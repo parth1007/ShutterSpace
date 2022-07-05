@@ -9,7 +9,15 @@ const Sidebar = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const {activeFolder,setActiveFolder} = AppState();
+  const {activeFolder,setActiveFolder,albums} = AppState();
+
+  // const handleClick = () => {
+  //   console.log("ff")
+  //   console.log(album.folderName)
+    
+  //   // setActiveFolder(albums[i].folderName);
+  // }
+  // setActiveFolder(album.folderName)
 
   return (
     <div className="sidebar">
@@ -18,13 +26,11 @@ const Sidebar = () => {
       <CreateAlbum open={open} handleClose={handleClose} />
 
       <div className="album-list">
-      
-          <div className="alb" onClick={()=>{setActiveFolder("Album1")}}>Album1</div>
-          <div className="alb" onClick={()=>{setActiveFolder("Album2")}}>Album2</div>
-          <div className="alb" onClick={()=>{setActiveFolder("Album3")}}>Album3</div>
-          <div className="alb" onClick={()=>{setActiveFolder("Album4")}}>Album4</div>
-          <div className="alb" onClick={()=>{setActiveFolder("Album5")}}>Album5</div>
-          <div className="alb" onClick={()=>{setActiveFolder("Album6")}}>Album6</div>
+          {albums.map((album,i) =>  {       
+            return(
+                <div className="alb" onClick={()=>{setActiveFolder(album)}} key={i}>{album?.folderName}</div>)
+             })}          
+
       </div>
 
     </div>
