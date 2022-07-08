@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Folder = require('../models/Folder.js')
+const User = require('../models/User.js')
+
 
 const ImageSchema = mongoose.Schema({
     uploadBy: {
@@ -17,10 +19,12 @@ const ImageSchema = mongoose.Schema({
     caption: {
         type : String
     },
-    likeCount:{
-        type: Number,
-        default: 0
-    },
+    likes: [
+        {
+          type: mongoose.Types.ObjectId,
+          ref: "User",
+        },
+      ],
     createdAt:{
         type: Date,
         default: new Date()

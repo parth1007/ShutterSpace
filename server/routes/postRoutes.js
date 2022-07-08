@@ -1,13 +1,15 @@
 const express = require("express")
 
-const {getPost , createPost} = require("../controllers/postControllers.js")
+const {getPost , createPost,likePost} = require("../controllers/postControllers.js")
 const {accessJwtToken} = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
 
 router.post('/:folderId',accessJwtToken, createPost);
-// router.get('/:folderId', getPost);
+router.get('/:folderId', getPost);
+router.put('/likePost/:postId',accessJwtToken, likePost);
+
 
 
 // export default router;

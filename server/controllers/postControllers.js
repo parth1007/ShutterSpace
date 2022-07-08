@@ -19,12 +19,13 @@ const createPost = async (req , res) => {
             "folder": folder,
             "imageUrl" : req.body.imageUrl
         })
+        
         await Folder.findByIdAndUpdate(folderId, 
             {
                 $push : {images : ans}
             }
         )
-        console.log(ans)
+        // console.log(ans)
 
         res.status(200).send(ans)
 
@@ -33,19 +34,49 @@ const createPost = async (req , res) => {
     }
 }
 
-// export const getPost = async (req, res) => {
+const getPost = async (req, res) => {
     
-//     try{
-
-//         const {folderName} = req.params.folderName;
-
-//         const {photos} = await Posts.find({folder : folderName})
+    try{
+        const {folderId} = req.params;
+        const folder = await Folder.findOne({_id : folderId});
+        const imgArr = []
+        for(var i = 0 ; i < folder.images.length; i++) {
+            const image = await Image.findById(folder.images[i])
+            imgArr.push(image)
+        }
     
-//      res.status(201).json(photos);
-//     } catch (error) {
-//         res.status(409).json({ message: error.message });
-//     }
+     res.status(201).json(imgArr);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 
-// }
+}
 
-module.exports = {createPost}
+
+const likePost = async (req, res) => {
+    
+    try{
+        const {postId} = req.params;
+        const user = req.user;
+
+        const tmp = await Image.find({
+            _id: postId,
+            likes: user._id,
+        });
+        if (tmp.length > 0) {
+            return res
+            .status(400)
+            .json({ msg: "You have already liked this post" });
+        }
+        else{
+            const img = await Image.findByIdAndUpdate(postId, {$push : {likes:user}} );
+            res.status(201).json(img); 
+        }
+
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+
+}
+
+module.exports = {createPost,getPost,likePost}
