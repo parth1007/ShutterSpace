@@ -23,7 +23,7 @@ const createPost = async (req , res) => {
         await Folder.findByIdAndUpdate(folderId, 
             {
                 $push : {images : ans}
-            }
+            },
         )
         // console.log(ans)
 

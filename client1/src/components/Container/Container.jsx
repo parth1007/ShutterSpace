@@ -27,7 +27,7 @@ const Container = () => {
         console.log("Fetching images");
         const {data} = await axios.get(`http://localhost:8000/api/post/${activeFolder._id}`,config);
         setImage(data);
-        // console.log(data);
+        console.log(data);
         console.log("Fetched images");
 
       } catch (error) {
@@ -39,7 +39,9 @@ const Container = () => {
       if(activeFolder){
       fetchPosts();
       }
+      // console.log("hehehehe")
     }, [activeFolder])
+
     const [isShown, setIsShown] = useState(false);
 
     const [images, setImages] = React.useState([]);
@@ -82,10 +84,7 @@ const Container = () => {
 
                     }}
                   </div>
-                  
-                  
-                  
-                  
+
                   )
               })}  
               </div> */}

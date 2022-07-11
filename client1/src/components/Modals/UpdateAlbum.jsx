@@ -22,19 +22,19 @@ const style = {
   };
 
 
-const CreateAlbum = ({open,handleClose}) => {
+const UpdateAlbum = ({open,handleClose}) => {
 
   const [albumname, setAlbumname] = useState("");
-  const {user,fetchAlbums,setActiveFolder} = AppState();
+  const {user,fetchAlbums,activeFolder,setActiveFolder} = AppState();
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if(!user.isAdmin){
-      alert("You are not authorized to create an album!");
-      handleClose();
-      return;
+        alert("Sorry! Only Admins can rename Albums.");
+        handleClose();
+        return;
     }
 
       try {
@@ -47,8 +47,8 @@ const CreateAlbum = ({open,handleClose}) => {
         const folder={
           folderName : albumname,
         }
-        
-        const {data} = await axios.post("http://localhost:8000/api/folder/createFolder",folder,config);
+        const {data} = await axios.put(`http://localhost:8000/api/folder/renameFolder/${activeFolder._id}`,folder,config);
+        console.log(data);
         setActiveFolder(data);
         fetchAlbums();
         handleClose();
@@ -70,10 +70,10 @@ const CreateAlbum = ({open,handleClose}) => {
             <Box sx={style}>
               <div className='create_album'>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Create Album
+                    Rename Album
                 </Typography>
                 <input type="text" className='album_name' placeholder='Enter a Name' onChange={(e) => setAlbumname(e.target.value)}/><br/>
-                <button type="button" className="album_submit" onClick={handleSubmit}> Create</button>
+                <button type="button" className="album_submit" onClick={handleSubmit}> Rename</button>
                 <button type="button" className="album_cancel" onClick={handleClose}> Cancel</button>
                 </div>
             </Box>
@@ -82,4 +82,4 @@ const CreateAlbum = ({open,handleClose}) => {
   )
 }
 
-export default CreateAlbum
+export default UpdateAlbum

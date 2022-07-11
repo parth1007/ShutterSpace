@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div className = "navbar">
-      <div className = "title">PicMe </div>
+      <div className = "title">ShutterSpace </div>
       
       <div className = "search">
          <SearchIcon className="search-icon" style={{marginLeft:"1rem"}}/>

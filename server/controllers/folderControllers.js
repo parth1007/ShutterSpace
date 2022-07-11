@@ -14,16 +14,15 @@ const getFolders = async(req , res) => {
 }
 const createFolder = async (req , res) => {
     try {
-        // const user = req.user;
+        
         const {folderName} = req.body;
-        // console.log(folderName)
         const ans = await Folder.create({
             "folderName": folderName,
         })
 
         res.status(200).send(ans)
 
-
+        
     } catch (error) {
         throw error;
     }
@@ -34,7 +33,7 @@ const renameFolder = async (req , res) => {
         // const user = req.user;
         const {folderId} = await req.params;
         const {folderName} = req.body
-        const newFolder = await Folder.findByIdAndUpdate(folderId, { folderName:folderName } );
+        const newFolder = await Folder.findByIdAndUpdate(folderId, { folderName:folderName },{new:true} );
         // console.log(newFolder)
         res.status(200).json(newFolder);
 
@@ -55,6 +54,7 @@ const renameFolder = async (req , res) => {
 
 const  deleteFolder = async (req , res) => {
     try {
+        
         // const userId = req.user._id;
         const {folderId} = await req.params;
 

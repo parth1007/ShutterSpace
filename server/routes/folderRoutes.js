@@ -6,8 +6,8 @@ const {getFolders,createFolder,renameFolder,deleteFolder} = require('../controll
 const router = express.Router();
 
 router.get('/getFolders', getFolders);
-router.post('/createFolder', createFolder);
-router.post('/renameFolder/:folderId', renameFolder);
+router.post('/createFolder' ,createFolder);
+router.put('/renameFolder/:folderId', renameFolder);
 router.delete('/deleteFolder/:folderId', deleteFolder);
 
 
