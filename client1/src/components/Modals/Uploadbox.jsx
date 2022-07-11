@@ -15,8 +15,9 @@ const style = {
     boxShadow: 24,
     display: 'flex',
     flexDirection: 'column',
-    padding: '2rem',
-    borderRadius: '1.5rem',
+    borderRadius: '1rem',
+    
+    background: "#1F73F1",
    
   };
 
@@ -70,10 +71,21 @@ const Uploadbox = ({open,handleClose}) => {
             aria-describedby="modal-modal-description"
             >
             <Box sx={style}>
-                <img src= {require('../../assets/Images/upload.png')} className="upload_img" />
+              <div className="upload_header">
+                <p className="upload_title">Upload </p>
+                <img src= {require('../../assets/Images/cross.png')} className="cross_img" />
+              </div>
+                <div className="upload_body">
+                  <div className="upload_browsebox">
+                    <img src= {require('../../assets/Images/upload.png')} className="upload_img" />
+                    <div className="upload_browse_text">
+                      <p className="drag_drop"> Drag and Drop or</p><p className="upload_browse"> Browse</p>
+                    </div>
+                  </div>
+                <button type="button" className="upload_save"> Save</button>
+                </div>
                 {/* <input type="file" onChange = {(e) => {uploadImg(e.target.files)}}/> */}
-                <button type="button" className="upload_browse"> Browse</button>
-                <button type="button" className="upload_submit"> Submit</button>
+                
             </Box>
       </Modal>
     </div>

@@ -13,8 +13,34 @@
     overflow-y: scroll;
     height: 88%;
 }
+.infinite-scroll-component__outerdiv
+{
+    width: 95%;
+}
 
-
+.image_grid_cont
+{
+    width: 100%;
+}
+.image-grid {
+    width: 100%;
+    padding-left: 10%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 30%));
+    grid-auto-rows: minmax(50px, auto);
+}
+    .image-item:nth-child(5n){
+      grid-column-end: span 2;
+    }
+  
+    .image-item{
+      display: flex;
+      width: 100%;
+      object-fit: cover;
+    }
+      
+      
 
 /* ************** Content-Bar **************** */
 

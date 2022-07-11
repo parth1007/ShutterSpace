@@ -1,40 +1,93 @@
+.upload_header
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0.5rem;
+    padding-left: 5rem;
+}
+.cross_img
+{
+    width: 1rem;
+    height: 1rem;
+    margin-left: 55%;
+    margin-top: 9%;
+    cursor: pointer;
+}
 
+.upload_title
+{
+    color: #fff;
+    font-weight: bolder;
+    margin-top: 5%;
+    font-size: 1.7rem;
+}
+
+.upload_body
+{
+    background: #fff;
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+}
+.upload_save
+{
+    margin-left: 35%;
+    margin-top: 5%;
+    background: rgba(89, 156, 255, 0.84);
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 100%;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10%;
+}
+
+.upload_browsebox
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+    padding: 2rem;
+    
+    border: 2px dashed #939090;
+border-radius: 24px;
+}
+
+.upload_browse_text
+{
+    display: flex;
+    flex-direction: row;
+}
 .upload_img
 {
-    width: 40%;
-    margin-left: 30%;
+    width: 14%;
+    height: 14%;
+    margin-left: 40%;
+    margin-top: 5%;
+    margin-bottom: 10%;
 }
+
 
 .upload_browse
 {
-    margin-top: 5%;
-    width: 50%;
-    margin-left: 25%;
-    background: #2A68C6;
-    padding: 1.6rem;
-    border-radius: 1.2rem;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: bolder;
-    text-align: center;
-    line-height: 100%;
-    border: none;
-    cursor: pointer;
+    color: #2A68C6;
+    margin-left: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+line-height: 1rem;
+cursor: pointer;
+color: #2A68C6;
 }
-.upload_submit
+.drag_drop
 {
-    width: 40%;
-    margin-left: 30%;
-    margin-top: 5%;
-    background: #12DF00;
-    color: #fff;
-    padding: 1.2rem;
-    border-radius: 1.5rem;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: bolder;
-    text-align: center;
-    line-height: 100%;
-    border: none;
-    cursor: pointer;
+    font-weight: 700;
+font-size: 1.1rem;
+line-height: 1.1rem;
+
+color: #919191;
 }
